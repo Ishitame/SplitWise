@@ -1,1 +1,3 @@
-const route=require("Router")
+module.exports.group=(req,res)=>{
+    res.send("Group data")
+}
