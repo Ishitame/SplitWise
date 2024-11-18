@@ -1,9 +1,8 @@
 const express = require('express');
+const { loginPageController } = require('../controllers/indexController');
 const route = express.Router();
 
-route.get("/", function(req, res){
-    res.send("Hello, this is the Group page");
-})
+route.get("/", loginPageController)
 
 
 module.exports = route;
