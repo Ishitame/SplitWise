@@ -6,3 +6,4 @@ route.get("/", loginPageController)
 
 
 module.exports = route;
+
