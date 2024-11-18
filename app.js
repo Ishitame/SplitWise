@@ -9,11 +9,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const indexRouter = require("./routes/index");
-const groupRouter = require("./routes/group")
+const groupRouter = require("./routes/group");
+const expenseRouter = require("./routes/expenses");
 
 
 app.use("/",indexRouter);
 app.use("/profile",groupRouter);
+app.use("/group/",expenseRouter);
+
 
 
 
