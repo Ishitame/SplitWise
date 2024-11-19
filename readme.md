@@ -11,20 +11,37 @@ UserModel
 
 
 GruopModel
-
 {
-  "_id": ObjectId, // Unique identifier for each group
-  "groupName": "string", // Name of the group
-  "description": "string", // Short description of the group (optional)
+  "_id": ObjectId, // Unique identifier for the group
+  "name": "string", // Name of the group
   "createdBy": ObjectId, // Reference to the _id of the user who created the group
-  "createdAt": "Date", // Timestamp when the group was created
   "members": [
     {
-      "userId": ObjectId, // Reference to the _id of the user
-      "joinedAt": "Date" // Timestamp when the user joined the group
+      "userId": ObjectId, // Reference to the user who is a member
+      "balance": {
+        "toPay": [
+          {
+            "payeeId": ObjectId, // User who is to be paid
+            "amount": "number" // Amount to pay
+          }
+        ],
+        "toReceive": [
+          {
+            "payerId": ObjectId, // User who owes money
+            "amount": "number" // Amount to receive
+          }
+        ]
+      }
     }
-  ]
+  ],
+  "totalBalance": {
+    "toPay": "number", // Total amount the group needs to pay
+    "toReceive": "number" // Total amount the group is owed
+  },
+  "expenses": [ObjectId], // References to associated expenses
+  "createdAt": Date // Timestamp when the group was created
 }
+
 
 
 
