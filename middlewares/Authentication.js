@@ -9,8 +9,8 @@ module.exports.isLoggedIn=async function(req,res,next) {
     if(token)
     {
         jwt.verify(token,secretKey,async function(err,decoded){
-            let{email,password}=decoded
-            let user=await userModel.findOne({email})
+            let{email,id}=decoded
+            let user=await userModel.findOne({_id:id})
             if(user)
             {
                 req.user=user;
